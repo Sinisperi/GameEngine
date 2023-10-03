@@ -15,5 +15,8 @@ namespace eng
 	private:
 	    bool m_Running;
 	    Window* m_Window;
+
+	private:
+	    void EventListener(Event& e);
     };
 }

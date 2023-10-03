@@ -1,10 +1,11 @@
 #pragma once
 #include <GLFW/glfw3.h>
+#include "event/event.hpp"
 #include <functional>
 
 namespace eng 
 {
-    using WindowEventListener = std::function<void(/*Event*/)>;
+    using WindowEventListener = std::function<void(Event&)>;
     class Window
     {
 	public:
@@ -26,5 +27,9 @@ namespace eng
 
 	    WindowData m_WindowData;
 	    GLFWwindow* m_WindowHandle;
+	
+	private:
+
+	    bool initEvents();
     };
 }

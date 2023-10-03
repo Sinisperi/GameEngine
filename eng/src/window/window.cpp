@@ -1,4 +1,5 @@
 #include "window.hpp"
+#include "event/event.hpp"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -20,7 +21,10 @@ namespace eng
 	m_WindowHandle = glfwCreateWindow(width, height, title, nullptr , nullptr);
 	glfwMakeContextCurrent(m_WindowHandle);
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+	glfwSetWindowUserPointer(m_WindowHandle, &m_WindowData);
 
+	if(!initEvents())
+	    std::cout << "Something went wrong while initializing events on the window!" << std::endl;
 
     }
 
@@ -33,5 +37,17 @@ namespace eng
     {
 	glfwSwapBuffers(m_WindowHandle);
 	glfwPollEvents();
+    }
+
+
+    bool Window::initEvents()
+    {
+	glfwSetWindowCloseCallback(m_WindowHandle, [](GLFWwindow* window){
+		WindowData data = *(WindowData*)glfwGetWindowUserPointer(window);
+		WindowClosed e;
+		data.EventListener(e);
+	    });
+
+	return true;
     }
 }
