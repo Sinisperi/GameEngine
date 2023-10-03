@@ -1,5 +1,5 @@
 #pragma once
-#include <GLFW/glfw3.h>
+#include "window/window.hpp"
 
 namespace eng
 {
@@ -14,6 +14,6 @@ namespace eng
 
 	private:
 	    bool m_Running;
-	    GLFWwindow* m_Window;
+	    Window* m_Window;
     };
 }
