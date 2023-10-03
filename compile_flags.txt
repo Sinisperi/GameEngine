@@ -1,0 +1,14 @@
+-I
+vendor/glad/include
+-I
+vendor/glfw/include
+-I
+vendor/glm
+-I
+eng
+-I
+eng/src
+-I
+app
+-I
+app/src
