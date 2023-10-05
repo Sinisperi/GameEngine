@@ -11,6 +11,7 @@ namespace eng
 	public:
 	    Window(unsigned int width, unsigned int height, const char* title);
 	    void SetWindowEventListener(const WindowEventListener& el);
+	    void* getProc();
 	    void Update();
 
 

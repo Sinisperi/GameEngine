@@ -12,3 +12,4 @@ eng/src
 app
 -I
 app/src
+-DGLFW_INCLUDE_NONE=1

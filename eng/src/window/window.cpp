@@ -50,4 +50,9 @@ namespace eng
 
 	return true;
     }
+
+    void* Window::getProc()
+    {
+	return (void*)glfwGetProcAddress;
+    }
 }

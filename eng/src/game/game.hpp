@@ -1,5 +1,6 @@
 #pragma once
 #include "window/window.hpp"
+#include "render_api/render_api.hpp"
 
 namespace eng
 {
@@ -15,6 +16,7 @@ namespace eng
 	private:
 	    bool m_Running;
 	    Window* m_Window;
+	    RenderAPI* m_RenderAPI;
 
 	private:
 	    void EventListener(Event& e);
